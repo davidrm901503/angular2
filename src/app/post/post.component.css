@@ -1,0 +1,9 @@
+.post-list {
+    border: 1px solid red;
+    margin-bottom: 8px;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
