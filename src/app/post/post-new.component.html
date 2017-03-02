@@ -1,28 +1,40 @@
-<h1>Crear post </h1>
-
-<div class="container">
-  <div class="row">
-    <form (ngSubmit)="crear(post) ; postForm.reset()" #postForm='ngForm'>
-
-      <div class="form-group">
-        <div class="col-sm-10 col-sm-offset-2">
-          <label for="title">Title</label>
-          <input type="text" name="title" required class="form-control" id="title" #title='ngModel' [(ngModel)]='post.title'>
+<h3 class="text-center">Nuevo artículo</h3>
+<br>
+<br>
+<form class="form-horizontal" (ngSubmit)="createPost(post); postForm.reset()" #postForm="ngForm">
+  <div class="form-group">
+    <label for="title" class="col-sm-2 control-label">Título</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" required id="title" name="title" placeholder="Título del artículo" name="title" #title='ngModel'
+        [(ngModel)]='post.title'>
+        <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+          El título es obligatorio
         </div>
-      </div>
-
-      <div class="form-group">
-
-        <div class="col-sm-10 col-sm-offset-2">
-          <label for="body">Body</label>
-          <textarea required name="body" class="form-control" id="body" #body='ngModel' [(ngModel)]='post.body'> </textarea>
-        </div>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <div [hidden]="!submitted" class="alert alert-success" role="alert">
-        se creo el post
-      </div>
-    </form>
+    </div>
   </div>
-</div>
+  <div class="form-group">
+    <label for="body" class="col-sm-2 control-label">Descripción</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" id="body" required placeholder="Descripción del artículo" name="body" #body='ngModel' [(ngModel)]='post.body'
+        rows="4"></textarea>
+        <div [hidden]="body.valid || body.pristine" class="alert alert-danger">
+          La descripción es obligatorio
+        </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10" [hidden]="submitted">
+      <button type="submit" class="btn btn-primary" [disabled]="!postForm.form.valid">Guardar</button>
+    </div>
+  </div>
+
+  <!--Noticia-->
+  <div class="col-sm-offset-2 col-sm-10">
+    <div class="alert alert-success" [hidden]="!submitted">El artículo fue creado satisfactoriamente.
+      <a class="alert-link" routerLink="/posts">Ver artículos</a>
+    </div>
+  </div>
+
+
+</form>

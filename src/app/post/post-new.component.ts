@@ -13,7 +13,8 @@ export class PostNewComponent {
   submitted: boolean = false;
 
   constructor(private postService: PostService) { }
-  crear(post: Post) {
+
+  createPost(post: Post) {
     this.submitted = true;
     this.postService.createPost(post)
       .subscribe(data => { return true },

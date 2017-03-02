@@ -23,7 +23,6 @@ import { ButtonModule } from 'primeng/primeng';
     PostShowComponent,
     HomepageComponent,
     PostNewComponent
-
   ],
   imports: [
     BrowserModule,

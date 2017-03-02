@@ -25,4 +25,14 @@ export class PostService {
       .map((res: Response) => res.json());
   }
 
+  destroyPost(id: number) {
+    return this.http.delete(this.postsUrl + "/" + id);
+  }
+
+  /* updateFood(food) {
+   let headers = new Headers({ 'Content-Type': 'application/json' });
+   let options = new RequestOptions({ headers: headers });
+   let body = JSON.stringify(food);
+   return this.http.put('/api/food/' + food_id, body, headers).map((res: Response) => res.json());*/
+
 }
