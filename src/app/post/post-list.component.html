@@ -1,26 +1,33 @@
-<h3 class="text-center">Listado de Artículos</h3>
+<h2 class="text-center">Listado de Artículos</h2>
 <br>
 <div class="col-sm-12">
 	<button class="btn btn-success" routerLink="/post/new">Crear artículo</button>
 </div>
 <br><br><br>
 <div class="col-sm-4" *ngFor="let post of posts">
+
+
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<div class="panel-title"><a (click)="goToShow(post)">{{post.title}}</a></div>
-		</div>
-		<div class="panel-body">
-			<small>ID: {{post.id}}</small>
-			<p>
-				<small>Última actualizacion: {{post.updated_at}}</small>
-			</p>
-			<div>
-				<p>
-					{{post.body}}
-				</p>
+			<div class="row">
+				<div class="col-xs-11 col-sm-9 col-md-10">
+					<h3 class="panel-title"><a (click)="goToShow(post)">{{post.title}}</a></h3>
+				</div>
+
+				<div class="col-xs-1 col-sm-3 col-md-1">
+					<span class="badge badge-info">{{post.id}}</span>
+				</div>
 			</div>
+		</div>
+
+		<div class="panel-body ">
+			{{post.body}}
+			<p>Actualizado: {{post.updated_at | date:'medium'}} </p>
+
 			<div>
-				<button (click)="destroyPost(post.id)">Eliminar</button>
+				<button class="pull-right btn btn-danger" (click)="destroyPost(post.id)">
+					<i class="glyphicon glyphicon-trash"></i>
+				</button>
 			</div>
 		</div>
 	</div>

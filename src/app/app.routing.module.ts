@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostComponent } from './post/post-list.component';
 import { PostShowComponent } from './post/post-show.component';
+import { PostUpdateComponent } from './post/post-update.component';
 import { PostNewComponent } from './post/post-new.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'posts', component: PostComponent },
   { path: 'posts/:id', component: PostShowComponent },
-  { path: 'post/new', component: PostNewComponent }
+  { path: 'post/new', component: PostNewComponent },
+  { path: 'posts/:id/edit', component: PostUpdateComponent }
 ]
 
 @NgModule({

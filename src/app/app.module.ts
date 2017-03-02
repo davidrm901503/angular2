@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post-list.component';
 import { PostShowComponent } from './post/post-show.component';
+import { PostUpdateComponent } from './post/post-update.component';
 import { PostNewComponent } from './post/post-new.component';
 import { PostService } from './post/post.service';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -22,7 +23,8 @@ import { ButtonModule } from 'primeng/primeng';
     PostComponent,
     PostShowComponent,
     HomepageComponent,
-    PostNewComponent
+    PostNewComponent,
+    PostUpdateComponent
   ],
   imports: [
     BrowserModule,

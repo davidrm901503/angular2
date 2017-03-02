@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Http } from '@angular/http';
 import { Post } from './post';
 import { PostService } from './post.service';
@@ -17,10 +17,11 @@ export class PostShowComponent implements OnInit {
 	constructor(
 		private http: Http,
 		private route: ActivatedRoute,
-		private postService: PostService		
+		private postService: PostService,
+		private router: Router
 	) { }
 
-	@Input() post: Post;
+	post: Post;
 
 	ngOnInit() {
 		this.routeId = this.route.params.subscribe(
@@ -31,5 +32,10 @@ export class PostShowComponent implements OnInit {
 			.flatMap((params: Params) => this.postService.getPost(+params['id']));
 		postRequest.subscribe(response => this.post = response.json());
 	}
-	
+
+	goToEdit(post: Post): void {
+		let postLink = ['/posts', post.id, 'edit'];
+		this.router.navigate(postLink);
+	}
+
 }

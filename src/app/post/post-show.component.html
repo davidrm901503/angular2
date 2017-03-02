@@ -1,4 +1,4 @@
-<h3 class="text-center">Artículo</h3>
+<h2 class="text-center">Artículo</h2>
 <br>
 
 <div class="panel panel-primary" *ngIf="post">
@@ -16,4 +16,5 @@
 	</div>
 </div>
 
-<a [routerLink]="['/posts']">Atras</a>
+<a [routerLink]="['/posts']">Atras</a> |
+<a (click)="goToEdit(post)">Actualizar</a>

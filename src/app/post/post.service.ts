@@ -29,10 +29,11 @@ export class PostService {
     return this.http.delete(this.postsUrl + "/" + id);
   }
 
-  /* updateFood(food) {
-   let headers = new Headers({ 'Content-Type': 'application/json' });
-   let options = new RequestOptions({ headers: headers });
-   let body = JSON.stringify(food);
-   return this.http.put('/api/food/' + food_id, body, headers).map((res: Response) => res.json());*/
+  updatePost(post: Post): Observable<Post> {
+    let headers = new Headers({ 'Content-Type': 'application/json' })
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put(this.postsUrl + '/' + post.id, JSON.stringify(post), options)
+      .map((res: Response) => res.json());
+  }
 
 }

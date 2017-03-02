@@ -29,6 +29,7 @@ export class PostComponent implements OnInit {
     this.router.navigate(postLink);
   }
 
+
   destroyPost(id: number) {
     if (confirm("Esta seguro que desea eliminar el artículo?")) {
       this.postService.destroyPost(id).subscribe(
